@@ -1,7 +1,0 @@
-﻿  Source.cpp
-f:\c++\movingimage\movingimage\source.cpp(139): warning C4244: '=': conversion from 'double' to 'LONG', possible loss of data
-f:\c++\movingimage\movingimage\source.cpp(140): warning C4244: '=': conversion from 'double' to 'LONG', possible loss of data
-f:\c++\movingimage\movingimage\source.cpp(150): warning C4244: '=': conversion from 'double' to 'LONG', possible loss of data
-f:\c++\movingimage\movingimage\source.cpp(151): warning C4244: '=': conversion from 'double' to 'LONG', possible loss of data
-  MovingImage.vcxproj -> F:\C++\MovingImage\Debug\MovingImage.exe
-  MovingImage.vcxproj -> F:\C++\MovingImage\Debug\MovingImage.pdb (Partial PDB)
