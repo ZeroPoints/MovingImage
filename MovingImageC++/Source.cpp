@@ -66,13 +66,13 @@ int APIENTRY WinMain(HINSTANCE hInstance,
 
 
 	//auto test5 = img.TransparentBlt(hdc, 0, 0, width, height, TRANSPARENT_MASK);
-	//auto test4 = img.Draw(hdc, 0, 0, width, height, 0, 0, width, height);
+	auto test4 = img.Draw(hdc, 0, 0, width, height, 0, 0, width, height);
 	//auto test3 = img.PlgBlt(hdcScreen, &dcOffset, 0, 0, width, height, 0, 0, 0);
 	//auto test2 = img.PlgBlt(hdcScreen, &dcOffset, 0);
 	//auto test1 = PlgBlt(hdcScreen, &dcOffset, hdc, 0, 0, width, height, 0, 0, 0);
 
 
-	auto layerResult = UpdateLayeredWindow(hWnd, hdcScreen, 0, &size, hdc, &dcOffset, 0, &bf, 0);
+	auto layerResult = UpdateLayeredWindow(hWnd, hdcScreen, 0, &size, hdc, &dcOffset, 0, &bf, ULW_ALPHA);
 
 
 	ShowWindow(hWnd, SW_SHOW);
