@@ -2,11 +2,11 @@
 C++ Rotate/Move Image
 
 Program that moves an image around the screen.
+Dont know how to format this file zzz
 
 Features: 
 
--Rotates the image. Done
-
+  -Rotates the image. Done
   	Trial 1:
   
     	-BitBlt
@@ -21,5 +21,5 @@ Features:
     
     
     
--Moves the image
+  -Moves the image
 
