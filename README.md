@@ -5,7 +5,7 @@ Program that moves an image around the screen.
 
 Features: 
 
-	-Rotates the image. Done
+-Rotates the image. Done
 
   	Trial 1:
   
@@ -21,5 +21,5 @@ Features:
     
     
     
-	-Moves the image
+-Moves the image
 
