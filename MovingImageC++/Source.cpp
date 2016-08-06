@@ -94,14 +94,14 @@ int APIENTRY WinMain(HINSTANCE hInstance,
 
 
 		for (auto i = 0; i < 3; i++) {
-			auto newPointX = dcOffset2Original[i].x - 50;
-			auto newPointY = dcOffset2Original[i].y - 50;
+			auto newPointX = dcOffset2Original[i].x - width / 2;
+			auto newPointY = dcOffset2Original[i].y - height / 2;
 
 			LONG finalPointX = newPointX*c - newPointY*s;
 			LONG finalPointY = newPointX*s + newPointY*c;
 
-			finalPointX = finalPointX + 50;
-			finalPointY = finalPointY + 50;
+			finalPointX = finalPointX + width / 2;
+			finalPointY = finalPointY + height / 2;
 
 			dcOffset2[i] = { finalPointX , finalPointY };
 		}
