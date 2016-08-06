@@ -48,7 +48,9 @@ int APIENTRY WinMain(HINSTANCE hInstance,
 
 
 	CImage img;
-	img.Load(L"test3.png");
+	img.Load(L"test2.png");
+	//img.Load(L"test3.png");
+	//img.Load(L"test4.png");
 	width = img.GetWidth();
 	height = img.GetHeight();
 	HBITMAP hBmp = CreateCompatibleBitmap(hdcScreen, width, height);
@@ -58,9 +60,11 @@ int APIENTRY WinMain(HINSTANCE hInstance,
 
 
 	POINT dcOffset = { 0, 0 };
-	POINT dcOffsetTest[3] = { { 0, 0 },{ 0,height },{ height, 0 } };
-	//POINT dcOffsetTest[3] = { { 0, 0 }, { 0, 0 },{ 0, 0} };
-	POINT dcOffset2 = { 0, 0 };
+	//TL
+	//TR
+	//BL
+	POINT dcOffset2[3] = { { 0, 0 },{ 100,0 },{ 0, 100 } };
+	POINT dcOffset2Original[3] = { { 0, 0 },{ 100,0 },{ 0, 100 } };
 	SIZE size = { width, height };
 	BLENDFUNCTION bf;
 	bf.BlendOp = AC_SRC_OVER;
@@ -72,58 +76,69 @@ int APIENTRY WinMain(HINSTANCE hInstance,
 	#define TRANSPARENT_MASK RGB(255,255,255)
 
 
-	//auto test5 = img.TransparentBlt(hdc, 0, 0, width, height, TRANSPARENT_MASK);
-	//auto test4 = img.Draw(hdc, 0, 0, width, height, 0, 0, width, height);
-	//auto test3 = img.PlgBlt(hdcScreen, &dcOffset, 0, 0, width, height, 0, 0, 0);
-	auto test2 = img.PlgBlt(hdc, dcOffsetTest, 0);
-	//auto test1 = PlgBlt(hdcScreen, &dcOffset, hdc, 0, 0, width, height, 0, 0, 0);
+	auto test2 = img.PlgBlt(hdc, dcOffset2, 0);
 
 
+	auto layerResult = UpdateLayeredWindow(hWnd, hdcScreen, 0, &size, hdc, &dcOffset, TRANSPARENT_MASK, &bf, ULW_ALPHA | ULW_COLORKEY);
 
-	//auto newAngle = 90 * 3.1415926535897 / 180.0;
-	//float cosine = (float)cos(newAngle);
-	//float sine = (float)sin(newAngle);
-	//XFORM transform;
-	//transform.eM11 = (FLOAT)cos(newAngle);
-	//transform.eM12 = (FLOAT)(-sin(newAngle));
-	//transform.eM21 = (FLOAT)(sin(newAngle));
-	//transform.eM22 = (FLOAT)cos(newAngle);
-	//transform.eDx = 0;
-	//transform.eDy = 0;
-	//XFORM transform2;
-	//transform2.eM11 = 1;
-	//transform2.eM12 = 0;
-	//transform2.eM21 = 0;
-	//transform2.eM22 = 1;
-	//transform2.eDx = -width / 2;
-	//transform2.eDy = -height / 2;
-	//XFORM transform3;
-	//transform3.eM11 = 1;
-	//transform3.eM12 = 0;
-	//transform3.eM21 = 0;
-	//transform3.eM22 = 1;
-	//transform3.eDx = width / 2;
-	//transform3.eDy = height / 2;
-	//XFORM result1;
-	//XFORM result2;
-	//CombineTransform(&result1, &transform2, &transform);
-	//CombineTransform(&result2, &result1, &transform3);
 
-	//int currentAngle = 50;
-	//auto resultMatrix = GetTransformMatrixDC(currentAngle);
-	//auto tmp = SetWorldTransform(hdcScreen, &resultMatrix);
-	//currentAngle++;
+	auto currentAngle = 1;
 
-	auto layerResult = UpdateLayeredWindow(hWnd, hdcScreen, 0, &size, hdc, &dcOffset, TRANSPARENT_MASK, &bf, ULW_ALPHA);
+	while (true) {
+		Sleep(10);
 
-	//while (true) {
-	//	Sleep(100);
-	//	auto layerResult2 = UpdateLayeredWindow(hWnd, hdcScreen, &dcOffset2, &size, hdc, &dcOffset, 0, &bf, ULW_ALPHA);
 
-	//	dcOffset2.x++;
-	//	dcOffset2.y++;
+		auto newAngle = currentAngle * 3.1415926535897 / 180.0;
+		float s = sin(newAngle);
+		float c = cos(newAngle);
 
-	//}
+
+		auto newPointX = dcOffset2Original[0].x - 50;
+		auto newPointY = dcOffset2Original[0].y - 50;
+
+		LONG finalPointX = newPointX*c - newPointY*s;
+		LONG finalPointY = newPointX*s + newPointY*c;
+
+		finalPointX = finalPointX + 50;
+		finalPointY = finalPointY + 50;
+
+		dcOffset2[0] = { finalPointX , finalPointY };
+
+		//------------------------------------------------------
+		newPointX = dcOffset2Original[1].x - 50;
+		newPointY = dcOffset2Original[1].y - 50;
+
+		finalPointX = newPointX*c - newPointY*s;
+		finalPointY = newPointX*s + newPointY*c;
+
+		finalPointX = finalPointX + 50;
+		finalPointY = finalPointY + 50;
+
+		dcOffset2[1] = { finalPointX , finalPointY };
+
+		//------------------------------------------------------
+		newPointX = dcOffset2Original[2].x - 50;
+		newPointY = dcOffset2Original[2].y - 50;
+
+		finalPointX = newPointX*c - newPointY*s;
+		finalPointY = newPointX*s + newPointY*c;
+
+		finalPointX = finalPointX + 50;
+		finalPointY = finalPointY + 50;
+
+		dcOffset2[2] = { finalPointX , finalPointY };
+
+
+		auto test2 = img.PlgBlt(hdc, dcOffset2, 0);
+		auto layerResult2 = UpdateLayeredWindow(hWnd, hdcScreen, 0, &size, hdc, &dcOffset, TRANSPARENT_MASK, &bf, ULW_ALPHA | ULW_COLORKEY);
+
+
+		currentAngle++;
+		if(currentAngle >= 360){
+			currentAngle = 0;
+		}
+
+	}
 
 
 	MSG msg;
@@ -138,42 +153,5 @@ int APIENTRY WinMain(HINSTANCE hInstance,
 
 	return (int)msg.wParam;
 }
-
-
-
-
-XFORM GetTransformMatrixDC(double angle) {
-	auto newAngle = angle * 3.1415926535897 / 180.0;
-	float cosine = (float)cos(newAngle);
-	float sine = (float)sin(newAngle);
-	XFORM transform;
-	transform.eM11 = (FLOAT)cos(newAngle);
-	transform.eM12 = (FLOAT)(-sin(newAngle));
-	transform.eM21 = (FLOAT)(sin(newAngle));
-	transform.eM22 = (FLOAT)cos(newAngle);
-	transform.eDx = 0;
-	transform.eDy = 0;
-	XFORM transform2;
-	transform2.eM11 = 1;
-	transform2.eM12 = 0;
-	transform2.eM21 = 0;
-	transform2.eM22 = 1;
-	transform2.eDx = -354 / 2;
-	transform2.eDy = -354 / 2;
-	XFORM transform3;
-	transform3.eM11 = 1;
-	transform3.eM12 = 0;
-	transform3.eM21 = 0;
-	transform3.eM22 = 1;
-	transform3.eDx = 354 / 2;
-	transform3.eDy = 354 / 2;
-	XFORM result1;
-	XFORM result2;
-	CombineTransform(&result1, &transform2, &transform);
-	CombineTransform(&result2, &result1, &transform3);
-	return result2;
-}
-
-
 
 

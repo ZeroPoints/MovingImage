@@ -1,3 +1,11 @@
 ﻿  Source.cpp
+f:\c++\movingimagec++\movingimagec++\source.cpp(129): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+f:\c++\movingimagec++\movingimagec++\source.cpp(130): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+f:\c++\movingimagec++\movingimagec++\source.cpp(136): warning C4244: 'initializing': conversion from 'float' to 'LONG', possible loss of data
+f:\c++\movingimagec++\movingimagec++\source.cpp(137): warning C4244: 'initializing': conversion from 'float' to 'LONG', possible loss of data
+f:\c++\movingimagec++\movingimagec++\source.cpp(148): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+f:\c++\movingimagec++\movingimagec++\source.cpp(149): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+f:\c++\movingimagec++\movingimagec++\source.cpp(160): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+f:\c++\movingimagec++\movingimagec++\source.cpp(161): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
   MovingImageC++.vcxproj -> F:\C++\MovingImageC++\Debug\MovingImageC++.exe
   MovingImageC++.vcxproj -> F:\C++\MovingImageC++\Debug\MovingImageC++.pdb (Full PDB)
