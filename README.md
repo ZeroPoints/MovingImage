@@ -1,5 +1,5 @@
 # MovingImage
-C++ Rotate/Move Image
+C++ Rotate/Move Image With White Background That Turns All White Transparent
 
 Program that moves an image around the screen.
 Dont know how to format this file zzz
