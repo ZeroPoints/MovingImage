@@ -93,41 +93,19 @@ int APIENTRY WinMain(HINSTANCE hInstance,
 		float c = cos(newAngle);
 
 
-		auto newPointX = dcOffset2Original[0].x - 50;
-		auto newPointY = dcOffset2Original[0].y - 50;
+		for (auto i = 0; i < 3; i++) {
+			auto newPointX = dcOffset2Original[i].x - 50;
+			auto newPointY = dcOffset2Original[i].y - 50;
 
-		LONG finalPointX = newPointX*c - newPointY*s;
-		LONG finalPointY = newPointX*s + newPointY*c;
+			LONG finalPointX = newPointX*c - newPointY*s;
+			LONG finalPointY = newPointX*s + newPointY*c;
 
-		finalPointX = finalPointX + 50;
-		finalPointY = finalPointY + 50;
+			finalPointX = finalPointX + 50;
+			finalPointY = finalPointY + 50;
 
-		dcOffset2[0] = { finalPointX , finalPointY };
-
-		//------------------------------------------------------
-		newPointX = dcOffset2Original[1].x - 50;
-		newPointY = dcOffset2Original[1].y - 50;
-
-		finalPointX = newPointX*c - newPointY*s;
-		finalPointY = newPointX*s + newPointY*c;
-
-		finalPointX = finalPointX + 50;
-		finalPointY = finalPointY + 50;
-
-		dcOffset2[1] = { finalPointX , finalPointY };
-
-		//------------------------------------------------------
-		newPointX = dcOffset2Original[2].x - 50;
-		newPointY = dcOffset2Original[2].y - 50;
-
-		finalPointX = newPointX*c - newPointY*s;
-		finalPointY = newPointX*s + newPointY*c;
-
-		finalPointX = finalPointX + 50;
-		finalPointY = finalPointY + 50;
-
-		dcOffset2[2] = { finalPointX , finalPointY };
-
+			dcOffset2[i] = { finalPointX , finalPointY };
+		}
+		
 
 		auto test2 = img.PlgBlt(hdc, dcOffset2, 0);
 		auto layerResult2 = UpdateLayeredWindow(hWnd, hdcScreen, 0, &size, hdc, &dcOffset, TRANSPARENT_MASK, &bf, ULW_ALPHA | ULW_COLORKEY);
