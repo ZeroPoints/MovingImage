@@ -50,11 +50,17 @@ int APIENTRY WinMain(HINSTANCE hInstance,
 	wcex.lpfnWndProc = DefWindowProc;
 	wcex.hInstance = hInstance;
 	wcex.lpszClassName = szWindowClass;
+	wcex.hIcon = NULL;
+	wcex.hIconSm = NULL;
+	wcex.lpszMenuName = NULL;
+	wcex.cbClsExtra = 0;
+	wcex.cbWndExtra = 0;
+
 
 	RegisterClassEx(&wcex);
 
 	hWnd = CreateWindowEx(
-		GM_ADVANCED | WS_EX_LAYERED | WS_EX_TOPMOST,
+		GM_ADVANCED | WS_EX_LAYERED | WS_EX_TOPMOST | WS_EX_TOOLWINDOW,
 		szWindowClass, 0, 
 		WS_OVERLAPPEDWINDOW,
 		CW_USEDEFAULT, 0, 
