@@ -21,5 +21,8 @@ Features:
     
     
     
-  -Moves the image
+  -Moves the image. Done
+  
+TODO: Rotate nicer around corners. 
+      Move nicer around corners
 
