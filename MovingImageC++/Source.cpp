@@ -1,9 +1,5 @@
 #include "windows.h"
-#include "resource.h"
 #include "thread"
-#include <iostream>
-#include <exception>
-#include "cmath"
 #include "atlimage.h"
 
 
