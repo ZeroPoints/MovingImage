@@ -20,7 +20,17 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="122017717912.bmp">
+    <ClInclude Include="resource1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="MovingImageC++.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="smile.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

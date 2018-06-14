@@ -1,0 +1,13 @@
+﻿  Source.cpp
+Source.cpp(192): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+Source.cpp(193): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+Source.cpp(205): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+Source.cpp(206): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+Source.cpp(267): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+Source.cpp(268): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+Source.cpp(275): warning C4244: 'initializing': conversion from 'float' to 'LONG', possible loss of data
+Source.cpp(276): warning C4244: 'initializing': conversion from 'float' to 'LONG', possible loss of data
+  Generating code
+  All 270 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  MovingImageC++.vcxproj -> F:\C++\MovingImageC++\Release\MovingImageC++.exe

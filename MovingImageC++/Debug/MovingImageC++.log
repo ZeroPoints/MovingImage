@@ -1,11 +1,10 @@
 ﻿  Source.cpp
-f:\c++\movingimagec++\movingimagec++\source.cpp(172): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-f:\c++\movingimagec++\movingimagec++\source.cpp(173): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-f:\c++\movingimagec++\movingimagec++\source.cpp(185): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-f:\c++\movingimagec++\movingimagec++\source.cpp(186): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-f:\c++\movingimagec++\movingimagec++\source.cpp(247): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-f:\c++\movingimagec++\movingimagec++\source.cpp(248): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-f:\c++\movingimagec++\movingimagec++\source.cpp(255): warning C4244: 'initializing': conversion from 'float' to 'LONG', possible loss of data
-f:\c++\movingimagec++\movingimagec++\source.cpp(256): warning C4244: 'initializing': conversion from 'float' to 'LONG', possible loss of data
+f:\c++\movingimagec++\movingimagec++\source.cpp(192): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+f:\c++\movingimagec++\movingimagec++\source.cpp(193): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+f:\c++\movingimagec++\movingimagec++\source.cpp(205): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+f:\c++\movingimagec++\movingimagec++\source.cpp(206): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+f:\c++\movingimagec++\movingimagec++\source.cpp(267): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+f:\c++\movingimagec++\movingimagec++\source.cpp(268): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+f:\c++\movingimagec++\movingimagec++\source.cpp(275): warning C4244: 'initializing': conversion from 'float' to 'LONG', possible loss of data
+f:\c++\movingimagec++\movingimagec++\source.cpp(276): warning C4244: 'initializing': conversion from 'float' to 'LONG', possible loss of data
   MovingImageC++.vcxproj -> F:\C++\MovingImageC++\Debug\MovingImageC++.exe
-  MovingImageC++.vcxproj -> F:\C++\MovingImageC++\Debug\MovingImageC++.pdb (Full PDB)

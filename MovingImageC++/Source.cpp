@@ -1,7 +1,12 @@
 #include "windows.h"
 #include "thread"
+#include "resource1.h"
 #include "atlimage.h"
 
+
+
+
+//#include <afxtoolbarimages.h>
 
 
 double XEquation(double y);
@@ -28,11 +33,13 @@ int direction = 1;
 int x, y;
 
 CImage img;
+//CPngImage pimg;
+
 HWND hWnd;
 HDC hdcScreen, hdc;
 int width, height = 0;
 
-#define TRANSPARENT_MASK RGB(255,255,255)
+#define TRANSPARENT_MASK RGB(0,0,0)
 
 
 int APIENTRY WinMain(HINSTANCE hInstance,
@@ -56,7 +63,6 @@ int APIENTRY WinMain(HINSTANCE hInstance,
 	wcex.cbClsExtra = 0;
 	wcex.cbWndExtra = 0;
 
-
 	RegisterClassEx(&wcex);
 
 	hWnd = CreateWindowEx(
@@ -68,23 +74,37 @@ int APIENTRY WinMain(HINSTANCE hInstance,
 		NULL, hInstance, NULL);
 	ShowWindow(hWnd, SW_SHOW);
 
-
 	hdcScreen = GetDC(0);
 	auto modeResullt = SetGraphicsMode(hdcScreen, GM_ADVANCED);
 	hdc = CreateCompatibleDC(hdcScreen);
 
+	HRSRC hResource = FindResource(NULL, MAKEINTRESOURCE(IDB_SMILEPNG), L"PNG");
+	DWORD imageSize = SizeofResource(NULL, hResource);
+	const void* pResourceData = LockResource(::LoadResource(NULL, hResource));
+	auto m_hBuffer = ::GlobalAlloc(GMEM_MOVEABLE, imageSize);
+	if (m_hBuffer)
+	{
+		void* pBuffer = ::GlobalLock(m_hBuffer);
+		if (pBuffer)
+		{
+			CopyMemory(pBuffer, pResourceData, imageSize);
 
-	img.Load(L"122017717912.png");
-	//img.Load(L"test2.png");
-	//img.Load(L"test3.png");
-	//img.Load(L"test4.png");
+			IStream* pStream = NULL;
+			if (::CreateStreamOnHGlobal(m_hBuffer, FALSE, &pStream) == S_OK)
+			{
+				img.Load(pStream);
+			}
+			::GlobalUnlock(m_hBuffer);
+		}
+		::GlobalFree(m_hBuffer);
+		m_hBuffer = NULL;
+	}
+	//img.Load(L"smile.png");
 	width = img.GetWidth();
 	height = img.GetHeight();
 	HBITMAP hBmp = CreateCompatibleBitmap(hdcScreen, width, height);
-
 	
 	HBITMAP hBmpOld = (HBITMAP)SelectObject(hdc, hBmp);
-
 	size = { width, height };
 
 	plgShape[0] = { 0, 0 };
